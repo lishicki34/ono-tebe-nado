@@ -5,6 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Оно тебе надо — аукцион вещей, в которые никто не верил</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <nav class="header__menu">
+        <ul class="header__link-list">
+          <li class="header__link-list-item_no-bullit">
+            <a class="header__link">главная</a>
+          </li>
+          <li class="header__link-list-item">
+            <a href="#" class="header__link_active">посмотреть лоты</a>
+          </li>
+          <li class="header__link-list-item">
+            <a href="#" class="header__link_active">об аукционе</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="logo">
+        <img
+          class="header__logo-image"
+          src="/images/logo-black.svg"
+          alt="Логотип"
+        />
+      </div>
+      <address class="address">
+        <a class="header__number" href="tel:+9 999 555 5555">+9 999 555 5555</a>
+        <a class="header_email" href="mailto:info@sobaka.ge">info@sobaka.ge</a>
+        <p class="header__address">
+          наб. Принсенграхт 263-265,<br />
+          Амстердам
+        </p>
+      </address>
+    </header>
+    <main>
+        <section class="cover">
+        <div class="cover__text">
+          <div class="cover__text_left">
+            <span>о<span class="letter-spacing">но</span></span>
+          </div>
+          <div class="cover__text_center">
+            <span>те<span class="letter-spacing">бе</span></span>
+          </div>
+          <div class="cover__text_right">
+            <span class="letter-spacing">н<span class="m_letter-spacing">ад<span class="no_letter_spacing">о</span></span></span>
+          </div>
+        </div>
+        <div class="cover__subtitle">
+          <span class="subtitle_text">Аукцион вещей, в которые никто не верил</span>
+        <div class="subtitle__button">
+          <p class="button_text">сделать ставку</p>
+        </div>  
+        </div>
+        <div class="overlay"></div>
+        </section>
+      <section class="lots"></section>
+      <section class="about"></section>
+    </main>
+    <footer></footer>
+  </body>
 </html>
