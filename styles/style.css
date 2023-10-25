@@ -1,16 +1,14 @@
 .header {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 109px;
+  grid-template-columns: 1fr min-content 1fr;
   box-sizing: border-box;
-  width: 1340px;
-  height: 109px;
-  margin: 92px 49px 51px;
+  max-width: 1340px;
+  margin: 92px 49px 92px 51px;
 }
 
 .header__menu {
   display: grid;
-  grid-column: 1/5;
+  justify-content: start;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -19,21 +17,26 @@
 
 .header__link-list {
   display: grid;
+  gap: 32px;
   grid-template-areas: "header__link-list-item_no-bullit header__link-list-item header__link-list-item";
   align-content: center;
-}
-
-.header__link-list-item_no-bullit {
-  list-style: none;
 }
 
 .header__link-list-item {
   list-style: circle;
 }
 
+.header__link-list-item:hover {
+  background-color: #f8f4bc;
+  border-radius: 10px;
+}
+
+.header__link-list-item_no-bullit {
+  list-style: none;
+}
+
 .logo {
   display: grid;
-  grid-column: 5/7;
   justify-content: center;
 }
 
@@ -41,29 +44,39 @@
   display: grid;
   width: 148px;
   height: 105px;
+  flex-shrink: 0;
 }
 
 .address {
-  display: grid;
-  grid-column: 9/11;
-  justify-content: end;
-  align-content: center;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 24.3px; /* 135% */
 }
 
+.header__address {
+  display: grid;
+  justify-content: end;
+  align-content: center;
+  padding-left: 300px;
+}
+
 .cover {
   display: grid;
   position: relative;
-  width: 1440px;
+  z-index: -1;
+  max-width: 1440px;
   background-image: url(/images/cover.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .cover-title {
-  width: 1340px;
+  display: grid;
+  z-index: 1;
+  max-width: 1340px;
   margin: 165px 50px 147px 50px;
+  gap: 20px;
   color: #fff;
   font-size: 100px;
   font-style: normal;
@@ -84,7 +97,6 @@
 .text_center {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   line-height: 100%;
   letter-spacing: 30px;
 }
@@ -92,7 +104,6 @@
 .text_right {
   display: flex;
   justify-content: end;
-  margin-top: 20px;
   line-height: 100%;
 }
 
@@ -105,19 +116,18 @@
 }
 
 .cover__subtitle {
-  display: flex;
+  display: grid;
+  grid-template-columns:repeat(4,1fr);
+  z-index: 1;
   margin-bottom: 62px;
 }
 
 .subtitle_text {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  margin-left: 422px;
+  display: grid;
+  grid-column: 1/4;
+  place-content: center end;
   word-spacing: 10px;
   color: #fff;
-  font-family: Raleway;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
@@ -125,17 +135,16 @@
   text-transform: uppercase;
 }
 
-.subtitle__button {
-  display: flex;
+.button {
+  display: grid;
+  justify-self: end;
   margin-left: 78px;
+  margin-right: 50px;
   padding: 12px 32px;
   width: 257px;
   height: 52px;
   background-color: transparent;
   border: 1px solid #fff;
-}
-
-.button_text {
   color: #fff;
   text-align: center;
   font-family: Raleway;
@@ -153,11 +162,11 @@
   bottom: 0;
   left: 0;
   z-index: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .lots__heading {
-  margin: 180px 1229px 27px 90px;
+  margin: 180px auto 27px 90px;
   color: #000;
   font-size: 40px;
   line-height: normal;
@@ -166,45 +175,53 @@
 
 .lots__card-list {
   display: flex;
+  flex-wrap: wrap;
+  max-width: 1340px;
   margin: 0 50px;
   flex-direction: row;
   gap: 25px;
   list-style: none;
 }
 
+.lots__card-list-item {
+  display: flex;
+  flex-grow: 1;
+}
+
 .card_link {
-  display: block;
+  display: flex;
   text-decoration: none;
+  flex-grow: 1;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 450px;
+  flex-grow: 1;
   padding: 50px 40px;
   width: 430px;
-  height: 450px;
+  min-height: 450px;
   background-size: cover;
+  position: relative;
+  z-index: -1;
 }
 
 .card_type_film {
-  position: relative;
-  z-index: -1;
   background-image: url(../images/card-lot-01.jpg);
 }
 
 .card_type_book {
-  position: relative;
-  z-index: -1;
   background-image: url(../images/card-lot-02.jpg);
 }
 
 .card_type_picture {
-  position: relative;
-  z-index: -1;
   background-image: url(../images/card-lot-03.jpg);
 }
 .card__title {
   position: relative;
   z-index: 1;
-  width: 350px;
   color: #fff;
   font-size: 22px;
   line-height: 120%; /* 26.4px */
@@ -222,21 +239,9 @@
   line-height: 120%; /* 24px */
 }
 
-.card_text_type_film {
-  margin-top: 202px;
-}
-
-.card_text_type_book {
-  margin-top: 30px;
-}
-
-.card_text_type_picture {
-  margin-top: 84px;
-}
-
 .lots__look-more-link {
   display: block;
-  margin: 30px 1108px 2px 90px;
+  margin: 30px auto 2px 90px;
   text-decoration: underline;
   color: #000;
   font-size: 20px;
@@ -245,13 +250,14 @@
   line-height: normal;
 }
 
+
 .about__column {
   display: grid;
   margin: 0 50px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   margin-top: 181px;
-  width: 1340px;
+  max-width: 1340px;
 }
 
 .about__logo {
@@ -281,31 +287,19 @@
 }
 
 .about_text {
+  display: grid;
+  grid-column: 2/4;
+  grid-row: 2/3;
+  align-content: space-between;
   font-size: 20px;
   font-weight: 400;
   line-height: normal;
 }
 
-.about_text_up {
-  display: grid;
-  grid-column: 2/4;
-  grid-row: 2/3;
-  height: 96px;
-  align-items: start;
-  margin-bottom: 25px;
-}
-
-.about_text_down {
-  display: grid;
-  grid-column: 2/4;
-  grid-row: 2/3;
-  align-items: end;
-}
-
 .footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 1340px;
+  max-width: 1340px;
   margin: 180px 50px 90px 50px;
 }
 
@@ -322,13 +316,17 @@
   list-style: none;
 }
 
+.footer__menu-link:hover {
+  background-color: #f8f4bc;
+  border-radius: 10px;
+}
+
 .footer__menu-link_active {
   text-decoration: none;
 }
 
 .footer__social-list {
   display: grid;
-  grid-template-areas: "icon_yt icon_vk icon_pint";
   grid-template-columns: repeat(3, 96px);
   justify-content: end;
 }
@@ -340,6 +338,11 @@
   list-style: none;
 }
 
+.footer__social-link:hover {
+  background-color: #f8f4bc;
+  border-radius: 10px;
+}
+
 .icon {
   width: 48px;
   height: 48px;
@@ -349,6 +352,7 @@
   display: grid;
   justify-content: start;
   align-content: stretch;
+  width: 240px;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
