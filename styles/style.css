@@ -125,7 +125,7 @@
 
 .cover__subtitle {
   display: grid;
-  grid-template-columns:repeat(4,1fr);  
+  grid-template-columns:repeat(4,1fr);
   z-index: 2;
   margin-bottom: 50px;
 
