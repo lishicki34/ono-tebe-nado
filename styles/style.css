@@ -110,6 +110,7 @@
 .text_right {
   display: flex;
   justify-content: end;
+  line-height: 100%;
 }
 
 .m_letter-spacing {
